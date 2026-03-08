@@ -7,7 +7,6 @@ from PIL import Image
 
 
 DEFAULT_NPZ_DIR = "data/FL_dataset/val"
-DEFAULT_JSON_PATH = "/mnt/data2/xyp/Light-3D-Unet-Front/inference/medsam2_prompts.json"
 DEFAULT_MODEL_CFG = "sam2.1_hiera_tiny512_FL.yaml"
 DEFAULT_CKPT_PATH = "exp_log/MedSAM2_FL_Finetune/checkpoints/checkpoint.pt"
 MODEL_CFG_ALIASES = {
@@ -18,7 +17,7 @@ MODEL_CFG_ALIASES = {
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--npz_dir", type=str, default=DEFAULT_NPZ_DIR)
-    parser.add_argument("--json_path", type=str, default=DEFAULT_JSON_PATH)
+    parser.add_argument("--json_path", type=str, required=True)
     parser.add_argument("--model_cfg", type=str, default=DEFAULT_MODEL_CFG)
     parser.add_argument("--ckpt_path", type=str, default=DEFAULT_CKPT_PATH)
     return parser.parse_args()
